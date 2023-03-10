@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  postgres:
+    container_name: tinder
+    image: postgres:14.3-alpine
+    environment:
+      POSTGRES_USER: tinder
+      POSTGRES_PASSWORD: tinder
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../../../ro:/ro:ro
+      - ../../../rw:/rw
+      - ../../../Downloads:/dl:ro
+      - ../.data/mysql:/var/lib/mysql
